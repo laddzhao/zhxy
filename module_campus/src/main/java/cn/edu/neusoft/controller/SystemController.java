@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.ibatis.annotations.ResultType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -21,9 +23,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/sms/system")
 public class SystemController {
@@ -112,6 +117,7 @@ public class SystemController {
         }
     }
 
+    @ApiOperation("将请求头中的token解析成id和用户类型 并根据id和类型查询用户信息 将信息和用户类型数据一起返回")
     @GetMapping("/getInfo")
     public Result<Object> getInfo(@RequestHeader("token")String token){
         //判断token是否有效
@@ -137,6 +143,23 @@ public class SystemController {
             map.put("user",teacher);
         }
         return Result.ok(map);
+    }
+
+    @ApiOperation("上传头像")
+    @PostMapping("/headerImgUpload")
+    public Result<Object> headerImgUpload(@ApiParam("封装请求体中的图片二进制数据") @RequestPart("multipartFile") MultipartFile multipartFile) throws IOException {
+//        先上传文件的名称
+        String originalFilename = multipartFile.getOriginalFilename();
+        assert originalFilename != null;
+//        获取文件格式 如 .jpg
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+//        为了避免文件保存到服务端，文件名相同导致覆盖。随机生成uuid数。
+        String fileName = UUID.randomUUID().toString().toLowerCase().replace("-", "").concat(suffix);
+//        保存路径
+        String destPath = "D:/5e/campus/module_campus/src/main/resources/static/upload/".concat(fileName);
+//        文件保存到服务器端
+        multipartFile.transferTo(new File(destPath));
+        return Result.ok("upload/".concat(fileName));
     }
 
 

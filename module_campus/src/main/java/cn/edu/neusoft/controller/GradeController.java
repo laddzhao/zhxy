@@ -69,6 +69,15 @@ public class GradeController {
             gradeService.save(grade);
         }
         return Result.ok();
-
     }
+
+    //    获取年级名称
+    @ApiOperation("获取年级名称")
+    @GetMapping("/getGrades")
+    public Result<Object> getGrades(){
+        List<Grade> grades = gradeService.list();
+
+        return Result.ok(grades);
+    }
+
 }

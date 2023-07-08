@@ -11,7 +11,7 @@
  Target Server Version : 80031 (8.0.31)
  File Encoding         : 65001
 
- Date: 04/07/2023 16:18:13
+ Date: 08/07/2023 16:10:04
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ INSERT INTO `tb_admin` VALUES (101, 'admin', '女', '21232f297a57a5a743894a0e4a8
 INSERT INTO `tb_admin` VALUES (102, 'admin1', '男', '21232f297a57a5a743894a0e4a801fc3', '333333@qq.com', '13866666666', '北京', 'upload/default.jpg');
 INSERT INTO `tb_admin` VALUES (103, 'admin2', '男', '21232f297a57a5a743894a0e4a801fc3', '333333@qq.com', '13866666666', '北京', 'upload/default.jpg');
 INSERT INTO `tb_admin` VALUES (104, 'admin3', '男', '21232f297a57a5a743894a0e4a801fc3', '333333@qq.com', '13866666666', '宏福苑', 'upload/default.jpg');
-INSERT INTO `tb_admin` VALUES (105, '赵林阳', '男', 'e10adc3949ba59abbe56e057f20f883e', '333333@qq.com', '13866666666', '宏福苑', 'upload/gq.jpg');
+INSERT INTO `tb_admin` VALUES (105, '赵林阳', '男', 'e10adc3949ba59abbe56e057f20f883e', '333333@qq.com', '13866666666', '宏福苑', 'upload/d86bf22dc9e8457484c189369aac07bc.png');
 
 -- ----------------------------
 -- Table structure for tb_clazz
@@ -81,7 +81,7 @@ CREATE TABLE `tb_grade`  (
   `telephone` varchar(12) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `introducation` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_grade
@@ -91,12 +91,6 @@ INSERT INTO `tb_grade` VALUES (2, '二年级', '小魏', 'xiaowei@163.com', '138
 INSERT INTO `tb_grade` VALUES (3, '三年级', '小李', 'xiaoli@163.com', '13666666666', '三年级,这个班级的孩子们很有才艺');
 INSERT INTO `tb_grade` VALUES (4, '五年级', '小丽', 'li@123.com', '13666666666', '这个年级的同学多才多活力');
 INSERT INTO `tb_grade` VALUES (5, '六年级', '小明', 'xiaoming@666.com', '13666666666', '这个年级的主任是小明');
-INSERT INTO `tb_grade` VALUES (6, '一年级', '大圣', 'dasheng@163.com', '13866666666', '大学一年级');
-INSERT INTO `tb_grade` VALUES (7, '二年级', '小魏', 'xiaowei@163.com', '13866666666', '大学二年级');
-INSERT INTO `tb_grade` VALUES (8, '三年级', '小李', 'xiaoli@163.com', '13666666666', '三年级,这个班级的孩子们很有才艺');
-INSERT INTO `tb_grade` VALUES (9, '五年级', '小丽', 'li@123.com', '13666666666', '这个年级的同学多才多活力');
-INSERT INTO `tb_grade` VALUES (14, '七年级', '赵林阳', '1234@qq.com', '15184548568', '测试。。。。。。。。。。');
-INSERT INTO `tb_grade` VALUES (15, 'string', 'string', '测试', 'string', 'string');
 
 -- ----------------------------
 -- Table structure for tb_student
